@@ -59,12 +59,6 @@ clf = DecisionTreeClassifier(min_samples_split=42)
 clf.fit(features_train, labels_train)
 pred_dtree = clf.predict(features_test)
 
-# SVM
-from sklearn.svm import SVC
-clf = SVC(C=10000.0,kernel='rbf',gamma='auto')
-clf.fit(features_train,labels_train)
-pred_svm = clf.predict(features_test)
-
 # AdaBoostClassifier
 from sklearn.ensemble import AdaBoostClassifier
 clf = AdaBoostClassifier(random_state=42)
@@ -91,8 +85,6 @@ print "Precision GaussianNB: ", precision_score(labels_test, pred_gaussian)
 print "Recall GaussianNB: ", recall_score(labels_test, pred_gaussian)
 print "Precision DecisionTree: ", precision_score(labels_test, pred_dtree)
 print "Recall DecisionTree: ", recall_score(labels_test, pred_dtree)
-print "Precision SVM: ", precision_score(labels_test, pred_svm)
-print "Recall SVM: ", recall_score(labels_test, pred_svm)
 print "Precision AdaBoostClassifier: ", precision_score(labels_test, pred_adaboost)
 print "Recall AdaBoostClassifier: ", recall_score(labels_test, pred_adaboost)
 print "Precision RandomForestClassifier: ", precision_score(labels_test, pred_rforest)

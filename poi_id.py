@@ -51,33 +51,31 @@ features_train, features_test, labels_train, labels_test = \
 from sklearn.naive_bayes import GaussianNB
 clf = GaussianNB()
 clf.fit(features_train, labels_train)
-pred = clf.predict(features_test)
+pred_gaussian = clf.predict(features_test)
 
 # Decision Tree
 from sklearn.tree import DecisionTreeClassifier
 clf = DecisionTreeClassifier(min_samples_split=42)
 clf.fit(features_train, labels_train)
-pred = clf.predict(features_test)
+pred_dtree = clf.predict(features_test)
 
 # SVM
 from sklearn.svm import SVC
 clf = SVC(C=10000.0,kernel='rbf',gamma='auto')
 clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
+pred_svm = clf.predict(features_test)
 
 # AdaBoostClassifier
 from sklearn.ensemble import AdaBoostClassifier
 clf = AdaBoostClassifier(random_state=42)
 clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
+pred_adaboost = clf.predict(features_test)
 
 # RandomForestClassifier
 from sklearn.ensemble import RandomForestClassifier
 clf = RandomForestClassifier(random_state=42)
 clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
-
-
+pred_rforest = clf.predict(features_test)
 
 ### Task 5: Tune your classifier to achieve better than .3 precision and recall 
 ### using our testing script. Check the tester.py script in the final project
@@ -85,6 +83,8 @@ pred = clf.predict(features_test)
 ### function. Because of the small size of the dataset, the script uses
 ### stratified shuffle split cross validation. For more info: 
 ### http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html
+
+
 
 # Example starting point. Try investigating other evaluation techniques!
 from sklearn.model_selection import train_test_split

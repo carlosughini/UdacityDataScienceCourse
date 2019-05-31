@@ -83,8 +83,15 @@ pred_rforest = clf.predict(features_test)
 ### function. Because of the small size of the dataset, the script uses
 ### stratified shuffle split cross validation. For more info: 
 ### http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
 
-
+# Printing the precision and the recall score
+print "Precision GaussianNB: ", precision_score(labels_test, pred_gaussian)
+print "Precision DecisionTree: ", precision_score(labels_test, pred_dtree)
+print "Precision SVM: ", precision_score(labels_test, pred_svm)
+print "Precision AdaBoostClassifier: ", precision_score(labels_test, pred_adaboost)
+print "Precision RandomForestClassifier: ", precision_score(labels_test, pred_rforest)
 
 # Example starting point. Try investigating other evaluation techniques!
 from sklearn.model_selection import train_test_split
